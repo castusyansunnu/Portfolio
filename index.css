@@ -1,0 +1,23 @@
+/*deninition de la chage graphique */
+:root{
+--couleur-primaire:#5D80E5; /*couleur principal*/
+--couleur-secondaire: #2D4059; /* couleur du second bouton */
+--couleur-du-texte: #EFEFEF; /*couleur des texte*/
+--couleur-d-arière-plan: #121212;/*couleur d'arrière plan de la section*/
+--couleur-des-bordu-du-cercle: #202020;/* surfacce et font de la section*/
+/*typographie*/
+--font-primaire: 'Inter', sans-serif;
+--fond-size-base: 1.125rem;
+}
+.herder{
+    background-color: #EFEFEF;
+    color: #5D80E5;
+    padding: 20px 0;
+}
+.contene{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
