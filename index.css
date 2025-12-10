@@ -1,23 +1,802 @@
 /*deninition de la chage graphique */
 :root{
---couleur-primaire:#5D80E5; /*couleur principal*/
---couleur-secondaire: #2D4059; /* couleur du second bouton */
+    /* ... vos variables de couleurs existantes ... */
+ --gradient-purple: linear-gradient(135deg, #7F00FF 0%, #E100FF 100%);
+ --gradient-green: linear-gradient(135deg, #16A085 0%, #2ECC71 100%);
+--gradient-orange: linear-gradient(135deg, #FF4500 0%, #FF8C00 100%);
+
+ --couleur-header: #FFFFFF; /* Blanc pour le Header */
+ --couleur-text-header: #121212;     /* Noir pour le texte sur fond blanc */
+--couleur-primaire:#3e64ed; /*couleur principal*/
+--couleur-secondaire: #1b2335; /* couleur du second bouton */
 --couleur-du-texte: #EFEFEF; /*couleur des texte*/
---couleur-d-arière-plan: #121212;/*couleur d'arrière plan de la section*/
---couleur-des-bordu-du-cercle: #202020;/* surfacce et font de la section*/
+--couleur-d-arière-plan: #1b2335;/*couleur d'arrière plan de la section*/
+--couleur-des-bordu-du-cercle: #1b2335;/* surfacce et font de la section*/
 /*typographie*/
 --font-primaire: 'Inter', sans-serif;
 --fond-size-base: 1.125rem;
 }
-.herder{
-    background-color: #EFEFEF;
-    color: #5D80E5;
-    padding: 20px 0;
+
+
+
+body{
+    /*reglage de base du body*/
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
 }
-.contene{
-    width: 90%;
-    margin: auto;
+
+.section-hero {
+
+    width: 101vw;
+   
+
+    /* Utilisation de Flexbox pour centrer le contenu verticalement et horizontalement */
     display: flex;
-    justify-content:space-between;
+    justify-content: center;
     align-items: center;
+    
+    /* Hauteur pour qu'elle prenne presque tout l'écran */
+    min-height: 9vh; 
+   
+    
+    background-color: var(--couleur-secondaire);
+    color: var(--couleur-du-texte);
+    text-align: center;
+    padding: 6rem 0;
+  
+    
+    /* Mise en place de l'arrière-plan avec les cercles (positionnement des formes) */
+    position: relative;
+    overflow: hidden; /* Important pour cacher les bords des cercles */
+}
+/* Styles pour les titres */
+.contenueusection-hero{
+    max-width: 800px;
+    z-index: 10; /* Assure que le contenu est au-dessus des cercles de fond */
+}
+.non-prenom {
+    font-size: 0.9rem;
+    color: var(--couleur-primaire);
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--couleur-primaire);
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    background-color: #3e64ed33;
+
+}
+.section-hero  h1 {
+    font-size: 4rem; /* Très grand titre */
+    margin-bottom: 1rem;
+    font-weight: 800; /* Plus gras que la normale */
+}
+
+/* Surligner le texte "SIL Student" */
+.texte-coloriè {
+    color: var(--couleur-primaire);
+}
+.hero-description {
+    font-size: 1.3rem;
+    color: #A0A0A0; /* Gris plus doux pour la description */
+    margin: 0 auto 2.5rem;
+    max-width: 600px;
+}
+.hero-connexion {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Espace entre les deux boutons */
+    margin-bottom: 3rem;
+}
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-secondaire {
+    background-color: var(--couleur-secondaire); /* Fond sombre */
+    color: var(--text-color);
+    border: 2px solid #505050; /* Bordure gris clair */
+}
+.btn-secondaire:hover {
+    background-color: #303030;
+    border-color: var(--couleur-primaire);
+}
+.btn-primaire{
+    background-color: var(--couleur-primaire); /* Fond sombre */
+    color: var(--text-color);
+    border: 2px solid #505050; /* Bordure gris clair */
+}
+
+/* Liens Sociaux */
+.hero-icone a {
+    color: #A0A0A0;
+    font-size: 1.5rem;
+    margin: 0 0.75rem;
+}
+
+.hero-icone a:hover {
+    color: var(--couleur-primaire);
+}
+
+/* --- Formes de fond (Les cercles) --- */
+/* Pour créer l'effet des cercles sans polluer le HTML */
+.section-hero::before,
+.section-hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(35, 45, 60, 0.7); /* Un gris bleu transparent */
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/* Cercle de gauche */
+.section-hero::before {
+    width: 350px;
+    height: 350px;
+    top: 15%;
+    left: -100px;
+}
+
+/* Cercle de droite */
+.section-hero::after {
+    width: 400px;
+    height: 400px;
+    bottom: 10%;
+    right: -100px;
+}
+  /*header et vav bar*/
+.header {
+    width: 100%;
+    /* Rendre le header fixe en haut  */
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Assure que le header est au-dessus de tout le contenu */
+    overflow-y: scroll;
+
+    /* Fond blanc comme demandé */
+    background-color: var(--couleur-header); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre subtile pour le faire ressortir */
+    padding: 0rem 10px;
+    padding-right: 10px;
+}
+.contener {
+    display: flex; /* Active Flexbox */
+    justify-content: space-between; /* Écarte le logo et la navigation */
+    align-items: center; /* Centre les éléments verticalement */
+}
+
+/* Style du Logo */
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--couleur-text-header); /* Texte noir sur fond blanc */
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.logo a:hover {
+    color: var(--couleur-primaire);
+}
+/* Style de la Navigation */
+.menu>a {
+    color: var(--couleur-text-header); /* Couleur par défaut des liens */
+    margin-left: 2.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+.menu  a:hover {
+    color: var(--couleur-primaire); /* Couleur primaire au survol */
+}
+
+/* Effet de soulignement actif/survol (très commun) */
+.menu  a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--couleur-primaire);
+    transition: width 0.3s ease;
+}
+.menu  a:hover::after {
+    width: 100%;
+}
+
+.A-Propos{
+    background-color: var(--couleur-header);
+     text-align: center;
+     padding: 6rem 0;
+    color: var(--couleur-secondaire);
+    
+
+}
+
+/* Style général pour tous les titres de section */
+.titre {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block; /* Nécessaire pour positionner le soulignement */
+    text-align: center;
+}
+
+/* Soulignement bleu sous le titre (comme sur la maquette) */
+.titre::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Positionnement vertical sous le texte */
+    left: 50%;
+    transform: translateX(-50%); /* Centrage horizontal parfait */
+    width: 60px; /* Longueur de la ligne */
+    height: 4px;
+    background-color: var(--couleur-primaire);
+    border-radius: 2px;
+}
+
+/* Contenu du texte "À Propos" */
+.A-Propos {
+    max-width: 800px; /* Limite la largeur du texte pour la lisibilité */
+    margin: 0 auto; /* Centre le bloc de texte */
+    text-align: left; /* Alignement du texte à gauche (standard pour le corps) */
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+}
+.A-Propos {
+    margin-bottom: 1.5rem; /* Espacement entre les paragraphes */
+}
+
+
+
+
+.competences-section {
+    background-color: var(--couleur-header); /* Fond sombre (comme le Hero) */
+    color: var(--couleur-du-texte); /* Texte clair */
+    padding: 6rem 0;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 1);
+}
+
+/* Surcharge du titre pour cette section sombre */
+.competences-section .section-titre {
+    color: var(--couleur-text-header);
+}
+.section-titre{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block; /* Nécessaire pour positionner le soulignement */
+
+}
+
+/* Soulignement bleu sous le titre (comme sur la maquette) */
+.section-titre::after{
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Positionnement vertical sous le texte */
+    left: 50%;
+    transform: translateX(-50%); /* Centrage horizontal parfait */
+    width: 60px; /* Longueur de la ligne */
+    height: 4px;
+    background-color: var(--couleur-primaire);
+    border-radius: 2px;
+    
+}
+
+
+
+/* Mise en place de la Grille pour les 3 Cartes */
+.competences-grid{
+    display: grid;
+    /* Crée 3 colonnes de taille égale */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espace entre les cartes */
+    max-width: 1200px;
+    margin: 3rem auto 0;
+}
+
+/* Style de la Carte de Compétence */
+.competence-card {
+    background-color: var(--couleur-header); /* Fond blanc pour les cartes */
+    color: var(--couleur-secondaire); /* Texte noir sur les cartes */
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombre pour l'effet de profondeur */
+    text-align: left;
+}
+
+.competence-card  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+.card-icon-wrapper {
+    background-color: #E6EEFE; /* Fond très clair pour l'icône */
+    color: var(--couleur-primaire);
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Liste des Compétences */
+.competence-liste {
+    list-style: none; /* Supprime les puces par défaut */
+    padding: 0;
+}
+.competence-liste li {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    /* Alignement des icônes et du texte */
+     display: flex;
+    align-items: center;
+}
+
+/* Style des icônes de la liste */
+.competence-liste li i {
+    font-size: 1.1rem;
+    margin-right: 0.75rem;
+    color: var(--couleur-primaire); /* Couleur d'accentuation */
+    width: 20px; /* Assure un alignement vertical parfait */
+    text-align: center;
+}
+
+/* Media Query pour la Réactivité */
+/* Sur les écrans de taille moyenne (ex: tablettes) */
+@media (max-width: 1024px) {
+    .competence-liste {
+        /* Passe de 3 à 2 colonnes */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Sur les petits écrans (ex: mobiles) */
+@media (max-width: 600px) {
+    .competence-liste {
+        /* Passe à 1 colonne */
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- 8. SECTION PROJETS --- */
+
+.projects-section {
+    background-color: #ffffff; /* Fond blanc */
+    color: var(--couleur-d-arière-plan); 
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+
+}
+
+/* Mise en place de la Grille de Projets (Identique à la grille de compétences) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+}
+
+/* Style de la Carte de Projet */
+.project-card {
+    background-color:#ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* Important pour contenir le bloc de couleur arrondi */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    /* Transition pour un effet sympa au survol */
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Remonte la carte légèrement au survol */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Bloc Supérieur Coloré */
+.project-icon-top {
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: var(--light-surface); /* Icônes blanches */
+}
+
+/* Définition des couleurs de fond (Dégradés) */
+.bg-purple { background: var(--gradient-purple); }
+.bg-green { background: var(--gradient-green); }
+.bg-orange { background: var(--gradient-orange); }
+
+/* Contenu du texte et boutons */
+.project-content {
+    padding: 2rem 1.5rem;
+    text-align: left;
+}
+
+.project-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.project-content p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    min-height: 90px; /* Assure que les cartes de descriptions inégales ont la même hauteur */
+}
+
+/* Conteneur des boutons */
+.project-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Style du bouton "View Code" (moins accentué) */
+.btn-dark-outline {
+    background-color:var(--couleur-d-arière-plan);
+    color: #ffffff;
+    border: 2px solid #ccc;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s;
+    
+} 
+
+.btn-dark-outline:hover {
+    border-color: var(--dark-text);
+    background-color: #ffffff;
+    color: var(--dark-text);
+}
+
+
+.btn-primary {
+    background-color:var(--couleur-primaire);
+    color: #ffffff;
+    border: 2px solid #ccc;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s;
+    
+} 
+.btn-primary:hover{
+     border-color: var(--dark-text);
+    background-color: #ffffff;
+    color: var(--dark-text);
+}
+
+.btn-dark-outline i {
+    margin-left: 0.75rem;
+}
+
+/* Media Queries (Identiques à la section Compétences pour la réactivité) */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- 9. SECTION CTA (CV Download) --- */
+
+.cta-section {
+    background-color: var(--couleur-primaire); /* Fond sombre pour le contraste et l'impact */
+    color: #ffffff; /* Texte clair */
+    padding: 6rem 0;
+    text-align: center;
+    width: 101vw;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff; /* Titre en blanc/clair */
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin: 0 auto 2.5rem auto; /* Centrage et espacement */
+}
+
+/* Style général pour les boutons de grande taille */
+.btn-large {
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    
+    /* Réutilisation de la couleur primaire pour l'accentuation */
+    background-color: #ffffff;
+    color: var(--couleur-primaire);
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-large:hover {
+    background-color: var(--couleur-primaire); /* Une nuance plus foncée au survol */
+    transform: translateY(-2px);
+}
+
+.btn-large i {
+    margin-right: 0.75rem; /* Espace entre l'icône PDF et le texte */
+}
+.section-title{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block; /* Nécessaire pour positionner le soulignement */
+    text-align:left;
+}
+.section-title::after{
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Positionnement vertical sous le texte */
+    left: 50%;
+    transform: translateX(-50%); /* Centrage horizontal parfait */
+    width: 60px; /* Longueur de la ligne */
+    height: 4px;
+    background-color: var(--couleur-primaire);
+    border-radius: 2px;
+}
+/* --- 10. SECTION CONTACT & FORMULAIRE --- */
+
+.section {
+    background-color: #ffffff; /* Fond clair */
+    color: var(--couleur-d-arière-plan);
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.contact-section .section-title::after {
+    background-color: var(--primary-color); /* Soulignement du titre */
+}
+
+.form-subtitle {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+}
+
+.contact-form {
+    max-width: 700px; /* Limite la largeur du formulaire */
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--light-surface); /* Fond du formulaire */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    
+    /* Utilisation de CSS Grid pour la mise en page (nom/email côte à côte) */
+    display: grid;
+    /* Crée 2 colonnes égales et gère les champs full-width */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    text-align: left;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Les champs qui doivent prendre toute la largeur (objet et message) */
+.full-width {
+    grid-column: 1 / -1; /* S'étend de la première colonne à la dernière */
+}
+
+/* Label */
+.contact-form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Inputs et Textarea */
+.contact-form input:not([type="submit"]),
+.contact-form textarea {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--couleur-primaire);
+    outline: none; /* Enlève la bordure de focus par défaut du navigateur */
+}
+
+/* Bouton d'envoi */
+.btn-submit {
+    /* Utilise la classe .btn-primary définie précédemment */
+    margin-top: 1rem;
+    width: auto; /* Largeur automatique */
+    padding: 1rem 2rem;
+}
+
+.submit-group {
+    /* Centre le bouton dans le champ full-width */
+    display: flex;
+    justify-content: center;
+}
+
+/* Media Query pour la Réactivité (sur mobile, les champs s'empilent) */
+@media (max-width: 768px) {
+    .contact-form {
+        /* Les deux colonnes passent à une seule colonne */
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- 11. PIED DE PAGE (FOOTER) --- */
+
+.main-footer {
+    background-color: var(--couleur-d-arière-plan); /* Utilisation du fond sombre */
+    color: #ffffff; /* Texte clair */
+    padding: 4rem 0 0; /* Pas de padding en bas pour laisser la ligne des droits d'auteur */
+}
+
+.footer-content {
+    /* Mise en place de la Grille pour les 3 Colonnes */
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* 2/4, 1/4, 1/4 pour donner plus de place au logo */
+    gap: 40px;
+    padding-bottom: 3rem;
+}
+
+.footer-col h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--light-surface); /* Titres en blanc */
+}
+
+/* Style de la colonne 1 (Info) */
+.footer-info p {
+    font-size: 0.9rem;
+    color: #A0A0A0; /* Gris plus doux pour la description */
+    line-height: 1.8;
+    max-width: 250px;
+}
+
+/* Surlignage du symbole */
+.highlight-text-footer {
+    color: var(--primary-color);
+}
+
+/* Style de la Colonne 2 (Liens Rapides) */
+.footer-nav {
+    display: flex;
+    flex-direction: column; /* Les liens s'empilent verticalement */
+    gap: 0.8rem;
+}
+
+.footer-nav a {
+    color: #A0A0A0;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Style de la Colonne 3 (Réseaux Sociaux) */
+.social-icons a {
+    background-color: #303030; /* Fond de bouton plus clair que le footer */
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    color: var(--light-surface);
+}
+
+/* Ligne des Droits d'auteur */
+.footer-bottom {
+    border-top: 1px solid #303030; /* Ligne de séparation subtile */
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #A0A0A0;
+}
+
+
+/* Media Queries pour la Réactivité */
+@media (max-width: 768px) {
+    .footer-content {
+        /* Les colonnes s'empilent sur les petits écrans */
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-col {
+        margin-bottom: 2rem;
+    }
+    .footer-info, .footer-links, .footer-social {
+        /* Centrage du contenu en mode empilé */
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-nav {
+        align-items: center;
+    }
+}
+
+/* --- RESPONSIVITÉ GÉNÉRALE (À appliquer après tous les styles de section) --- */
+
+@media (max-width: 768px) {
+    /* Ajustement de la taille de police de base sur mobile pour plus de compacité */
+    :root {
+        --font-size-base: 1rem; /* 16px */
+    }
+    
+    /* Réduction de l'espacement vertical sur mobile */
+    .about-section, 
+    .skills-section {
+        padding: 4rem 0;
+    }
+
+    /* Réduction de la taille des titres de section sur mobile */
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Réduction du padding du conteneur pour utiliser plus de largeur */
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* SECTION À PROPOS */
+    .about-content {
+        /* Permet un padding plus grand sur les côtés du texte */
+        padding: 0 1rem;
+        text-align: justify; /* Optionnel : justifier le texte sur mobile */
+        
+    }
 }

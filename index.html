@@ -5,52 +5,264 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="styleshett" href="index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <!--HEADER -->
-    <herder class="herder">
+      <header class="header">
         <div class="contener">
-            <h1>Mon portfolio</h1>
-            <nav>
-                <a href="">Acceuil</a>
-                <a href="">Apropos</a>
-                <a href="">Projet</a>
-            
+            <h1 class="logo">
+                <a href="index.html">Mon Portfolio</a>
+            </h1>
+            <nav class="menu">
+                <a href="#Acceuil">Acceuil</a>
+                <a href="#Apropos">Apropos</a>
+                <a href="#contacte">Formulaire</a>
+               
             </nav>
         </div>
-    </herder>
+      </header>
 
     <!--HERO -->
-     <Section class ="Section">
-        <div class="hero-contener">
-            <p class= "titre-modifier"> YANSUNNU Castus</p>
+    <section class="section-hero" id="Acceuil">
+        <div class="contenueusection-hero">
+                    <p class="non-prenom">YANSUNNU Castus</p>
+                    <h1>
+                        Etudiant en Sytème Informatique et Logiciel
+                        <span class="texte-coloriè"> Devéloppeur Full-stack</span>
+                    </h1>
+                    <p class="hero-description">
+                        Étudiant en informatique en troisième année, 
+                        passionné par la création de solutions logicielles innovantes et par la résolution de défis techniques complexes.
+                    </p>
+                    <div class="hero-connexion">
+                        <a href="#Projets"  class="btn btn-primaire">Mes Projets</a>
+                        <a href="#contacte" class="btn btn-secondaire"> Contacte</a>
+                    </div>
 
-            <h1>
-                ETUDIANT EN SYSTEME INFORMATIQUE ET LOGICIEL
-                <span class="texte-coloré">DEVELOPPER FULL-STARCK</span>
-            </h1>
-            <p classe="description">
-               Étudiant en troisième année d'informatique, passionné par la création de
-               solutions logicielles innovantes et la résolution de défis techniques complexes.
+                    <div class="hero-icone">
+                         <a href="#" target="_blank" aria-label="Lien vers GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" aria-label="Lien vers LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Envoyer un email"><i class="fas fa-envelope"></i></a>
+                   </div>
+        </div>
+    </section>
+                  <!--A Propos-->
+
+    <section class="A-Propos" id="Apropos">
+        <div class="conteneur-propos">
+            <h2 class="titre"> A Propos</h2>
+            <p class="paragraphe1">
+                Je suis étudiant en troisième année d'informatique en SIL,
+                 je m'investis en  développement de logiciels, avec une solide formation à la fois  théorique et surtout  pratiques. 
+                 Mon parcours académique m'a permis d'acquérir des connaissances approfondies en algorithmes, structures de données et en réseau.
             </p>
+            <p>
+                Ma philosophie de développement repose sur l'écriture de **code propre et maintenable** et sur la création de solutions digitale. 
+                Je crois au pouvoir de l'apprentissage continu et à l'importance de rester à jour avec les technologies émergentes.
+                 À travers divers projets académiques et personnels, j'ai développé un sens aigu du détail et une approche systématique de la résolution de problèmes informatiques .
+            </p>
+            <p>
+                Je suis partitionné par le  développement, l'administration système et réseauà , ainsi qu'à la création d'applications ayant un impact réel.
+                 Mon objectif est de mettre à profit mes compétences techniques et mes connaissances académiques pour contribuer à des projets innovants tout en continuant à progresser
+                 en tant que développeur logicielet administrateur dans un environnement collaboratif et stimulant.
+            </p>
+        </div>
+    </section>
+
+               <!--Mes competences -->
+
+ <section  class="competences-section " id="competences">
+               
+    <div class="containeur">
+        <h2 class="section-titre">Competences </h2>
+        
+        <div class="competences-grid">
             
-            <div class="hero-bouton">
-                <a href="">Mes projet</a>
-                <a href="">Contact</a>
+            <div class="competence-card">
+                <div class="card-icon-wrapper"><i class="fas fa-code"></i></div>
+                <h3>Languages</h3>
+                <ul class="competence-liste">
+                    <li><i class="fab fa-python"></i>Python</li>
+                    <li><i class="fab fa-java"></i>Java</li>
+                    <li><i class="fab fa-js-square"></i>JavaScript</li>
+                    <li><i class="fas fa-database"></i>SQL</li>
+                    <li><i class="fab fa-html5"></i>HTML/CSS</li>
+                    <li><i class="fas fa-terminal"></i>C / C++</li>
+                </ul>
+            </div>
+            
+            <div class="competence-card">
+                <div class="card-icon-wrapper"><i class="fas fa-layer-group"></i></div>
+                <h3>Frameworks</h3>
+                <ul class="competence-liste">
+                    <li><i class="fab fa-react"></i>React.js</li>
+                    <li><i class="fab fa-node-js"></i>Node.js</li>
+                    <li><i class="fas fa-leaf"></i>Laravel</li>
+                    <li><i class="fas fa-flask"></i>Django</li>
+                    <li><i class="fas fa-bolt"></i>Express.js</li>
+                    <li><i class="fas fa-palette"></i>Tailwind CSS</li>
+                </ul>
+            </div>
+            
+            <div class="competence-card">
+                <div class="card-icon-wrapper"><i class="fas fa-tools"></i></div>
+                <h3>Outils et plateformes</h3>
+                <ul class="competence-liste">
+                    <li><i class="fab fa-github"></i>Git & GitHub</li>
+                    <li><i class="fab fa-docker"></i>Gitlab</li>
+                    <li><i class="fab fa-aws"></i>Photoshop</li>
+                    <li><i class="fas fa-leaf"></i>MongoDB</li>
+                    <li><i class="fas fa-fire"></i>Firebase</li>
+                    <li><i class="fab fa-linux"></i>Linux</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</section>
+      <!--Mes projet-->
+      <section id="Projets" class="projects-section">
+    <div class="container">
+        <h2 class="section-title">Mes projets.</h2>
+        <p class="section-subtitle">Découvrez mon dernier travail et mes réalisations techniques</p>
+        
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-icon-top bg-purple">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="project-content">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Full-stack e-commerce application with user authentication, product management, shopping cart functionality, and secure payment integration using Stripe API.</p>
+                    <div class="project-actions">
+                        <a href="#" target="_blank" class="btn btn-primary">Voir la page </a>
+                        <a href="#" target="_blank" class="btn btn-dark-outline">Voir le code  <i class="fab fa-github"></i></a></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-icon-top bg-green">
+                    <i class="fas fa-list-check"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Task Management System</h3>
+                    <p>Collaborative task management application with real-time updates, team collaboration features, priority management, and deadline tracking using WebSocket technology.</p>
+                    <div class="project-actions">
+                        <a href="#" target="_blank" class="btn btn-primary">Voir la page </a>
+                        <a href="#" target="_blank" class="btn btn-dark-outline">Voir le code <i class="fab fa-github"></i></a>  </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-icon-top bg-orange">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Data Analytics Dashboard</h3>
+                    <p>Interactive data visualization dashboard with real-time analytics, custom reporting, and data export features built with React and D3.js for complex data insights.</p>
+                    <div class="project-actions">
+                         <a href="#" target="_blank" class="btn btn-primary">Voir la page   </a>
+                        <a href="#" target="_blank" class="btn btn-dark-outline">Voir le code  <i class="fab fa-github"></i></a> </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+        <!-- CTA plus téléchargement de Cv-->
+
+        <section id="cta-cv" class="cta-section">
+    <div class="container">
+        <h2>Intéressé par mon Profil ?</h2>
+        <p>
+            Téléchargez mon CV complet pour découvrir mon parcours académique en SIL, le détail de mes expériences professionnelles et de mes réalisations techniques.
+        </p>
+        <a href="YANSUNNU Océane Castus stage.pdf" download class="btn btn-primary btn-large">
+            <i class="fas fa-file-pdf"></i> Télécharger mon CV
+        </a>
+    </div>
+</section>
+
+          <!--Formulaire de contacy -->
+         <section id="contacte" class="section">
+    <div class="container">
+        <h2 class="section-title">Formulaire de contacte </h2>
+
+        <form action="#" method="POST" class="contact-form">
+           
+            
+            <div class="form-group half-width">
+                <label for="name">Nom Complet :</label>
+                <input type="text" id="name" name="name" placeholder="Votre Nom et Prénom" required>
+            </div>
+            
+            <div class="form-group half-width">
+                <label for="email">Adresse Email :</label>
+                <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required> 
+            </div>
+            
+            <div class="form-group full-width">
+                <label for="subject">Objet :</label>
+                <input type="text" id="subject" name="subject" placeholder="Ex: Proposition de stage, Question technique..." required>
             </div>
 
-    <div  class="hero-icone">
-        <a href="#" target="_blank" aria-label="Lien vers GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" target="_blank" aria-label="Lien vers LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:votre.email@domaine.com" aria-label="Envoyer un email"><i class="fas fa-envelope"></i></a>
+            <div class="form-group full-width">
+                <label for="message">Votre Message :</label>
+                <textarea id="message" name="message" rows="5" placeholder="Votre message détaillé..." required></textarea>
+            </div>
+            
+            <div class="form-group full-width submit-group">
+                <button type="submit" class="btn btn-primary btn-submit">
+                    Envoyer le Message <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </form>
     </div>
+</section>
 
-        </div>
+                                           <!--Footer-->
 
-     </Section>
-
+    <footer class="main-footer">
+    <div class="container footer-content">
         
+        <div class="footer-col footer-info">
+            <h3>
+                Portfolio <span class="highlight-text-footer"></span>
+            </h3>
+            <p>Étudiant en informatique spécialisé dans le développement de logiciels et la création de solutions innovantes.</p>
+        </div>
+        
+        <div class="footer-col footer-links">
+            <h3>Liens Utiles </h3>
+            <nav class="footer-nav">
+                <a href="#Apropos">A propos</a>
+                <a href="#competences">Competence</a>
+                <a href="#Projets">Projets</a>
+                <a href="#contacte">Contacte</a>
+            </nav>
+        </div>
+        
+        <div class="footer-col footer-social">
+            <h3>Connexion</h3>
+            <div class="social-icons">
+                <a href="#" target="_blank" aria-label="Lien vers GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" aria-label="Lien vers LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Envoyer un email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>© 2025 Portfolio. Tous droits réservés.</p>
+    </div>
+</footer>
+
     
 </body>
 </html>
