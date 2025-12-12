@@ -24,6 +24,7 @@ body{
     overflow-x: hidden;
     padding: 0;
     margin: 0;
+  
 }
 
 .section-hero {
@@ -208,6 +209,66 @@ body{
 .menu  a:hover::after {
     width: 100%;
 }
+/* --- CSS POUR LE MENU HAMBURGER (Ajouter après le CSS existant) --- */
+
+/* Bouton Hamburger (Masqué par défaut) */
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--couleur-text-header);
+    cursor: pointer;
+    z-index: 200; 
+}
+
+/* --- RESPONSIVITÉ NAV BAR (MOBILE/TABLETTE < 768px) --- */
+@media (max-width: 768px) {
+    
+    .contener {
+        /* Assure que le logo et l'icône restent sur la même ligne */
+        justify-content: space-between; 
+    }
+
+    /* Affiche l'icône de menu */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Positionnement du Menu (Masqué par défaut) */
+    .menu {
+        /* Masqué par défaut */
+        display: none; 
+        position: absolute;
+        top: 100%; /* Se place juste sous le header */
+        left: 0;
+        width: 100%;
+        background-color: var(--couleur-header); /* Fond de la nav */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        flex-direction: column; /* Les liens sont empilés verticalement */
+        padding: 0.5rem 0;
+        z-index: 10;
+        text-align: center;
+    }
+
+    /* Style des liens empilés (remplace l'affichage en ligne) */
+    .menu a {
+        padding: 0.75rem 0;
+        margin: 0; /* Supprime le margin-left qui créait l'espace horizontal */
+        width: 100%;
+        border-bottom: 1px solid #eee;
+        display: block;
+    }
+    
+    .menu a:last-child {
+        border-bottom: none;
+    }
+
+    /* Classe qui sera ajoutée/retirée par JavaScript pour afficher le menu */
+    .menu.active {
+        display: flex; /* Affiche le menu sous forme de liste verticale */
+    }
+}
 
 .A-Propos{
     background-color: var(--couleur-header);
@@ -257,8 +318,8 @@ body{
 
 
 .competences-section {
-    background-color: var(--couleur-header); /* Fond sombre (comme le Hero) */
-    color: var(--couleur-du-texte); /* Texte clair */
+    background-color: #ffffff; /* Fond sombre (comme le Hero) */
+    color: var(--couleur-header); /* Texte clair */
     padding: 6rem 0;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 1);
@@ -274,7 +335,7 @@ body{
     margin-bottom: 2rem;
     position: relative;
     display: inline-block; /* Nécessaire pour positionner le soulignement */
-
+    text-align: center;
 }
 
 /* Soulignement bleu sous le titre (comme sur la maquette) */
@@ -367,6 +428,22 @@ body{
     .competence-liste {
         /* Passe à 1 colonne */
         grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 600px) {
+    /* La grille de compétences (qui doit avoir la classe .skills-grid) */
+    .competences-grid { 
+        /* La clé de l'empilement vertical */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    /* ... (ajustements de padding et font-size pour .skill-card) ... */
+}
+
+/* VPour les  tablettes (2 colonnes) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .competences-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -799,4 +876,9 @@ body{
         text-align: justify; /* Optionnel : justifier le texte sur mobile */
         
     }
+
+    
 }
+
+
+

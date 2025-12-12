@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mon Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer ></script>
 </head>
 <body>
-    <!--HEADER -->
-      <header class="header">
-        <div class="contener">
-            <h1 class="logo">
-                <a href="index.html">Mon Portfolio</a>
-            </h1>
-            <nav class="menu">
-                <a href="#Acceuil">Acceuil</a>
-                <a href="#Apropos">Apropos</a>
-                <a href="#contacte">Formulaire</a>
-               
-            </nav>
-        </div>
-      </header>
+   <header class="header">
+    <div class="contener">
+        <h1 class="logo">
+            <a href="#hero">Mon Portfolio</a> </h1>
+        
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i> 
+        </button>
+
+        <nav class="menu" id="nav-menu"> 
+            <a href="#hero">Accueil</a>
+            <a href="#about">À Propos</a>
+            <a href="#projects">Projets</a>
+            <a href="#contact">Formulaire</a>
+        </nav>
+    </div>
+</header>
 
     <!--HERO -->
     <section class="section-hero" id="Acceuil">
@@ -263,6 +267,5 @@
     </div>
 </footer>
 
-    
 </body>
 </html>
