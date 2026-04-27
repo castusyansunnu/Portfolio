@@ -17,6 +17,10 @@
 --fond-size-base: 1.125rem;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 
 
 body{
@@ -26,6 +30,9 @@ body{
     margin: 0;
   
 }
+
+
+
 
 .section-hero {
 
@@ -773,9 +780,11 @@ body{
 /* --- 11. PIED DE PAGE (FOOTER) --- */
 
 .main-footer {
+    width: 101vw;
     background-color: var(--couleur-d-arière-plan); /* Utilisation du fond sombre */
     color: #ffffff; /* Texte clair */
     padding: 4rem 0 0; /* Pas de padding en bas pour laisser la ligne des droits d'auteur */
+
 }
 
 .footer-content {
