@@ -233,6 +233,7 @@ body{
     /* Affiche l'icône de menu */
     .menu-toggle {
         display: block;
+       padding: 20px 30px;
     }
 
     /* Positionnement du Menu (Masqué par défaut) */
@@ -268,6 +269,7 @@ body{
     .menu.active {
         display: flex; /* Affiche le menu sous forme de liste verticale */
     }
+    
 }
 
 .A-Propos{
@@ -275,9 +277,14 @@ body{
      text-align: center;
      padding: 6rem 0;
     color: var(--couleur-secondaire);
+     align-items: center;
+     justify-content: center;
     
 
 }
+
+
+
 
 /* Style général pour tous les titres de section */
 .titre {
@@ -306,13 +313,14 @@ body{
 .A-Propos {
     max-width: 800px; /* Limite la largeur du texte pour la lisibilité */
     margin: 0 auto; /* Centre le bloc de texte */
-    text-align: left; /* Alignement du texte à gauche (standard pour le corps) */
+    text-align: center; /* Alignement du texte à gauche (standard pour le corps) */
     font-size: var(--font-size-base);
     line-height: 1.8;
 }
 .A-Propos {
     margin-bottom: 1.5rem; /* Espacement entre les paragraphes */
 }
+
 
 
 
@@ -396,6 +404,8 @@ body{
 .competence-liste {
     list-style: none; /* Supprime les puces par défaut */
     padding: 0;
+     text-align: center;
+     justify-content: center;
 }
 .competence-liste li {
     margin-bottom: 0.8rem;
@@ -414,6 +424,27 @@ body{
     text-align: center;
 }
 
+@media (max-width: 600px) {
+
+    .competence-card {
+        text-align: center;
+    }
+
+    .competence-liste {
+        padding: 0;
+        list-style: none;
+    }
+
+
+}
+
+
+
+
+
+    
+
+
 /* Media Query pour la Réactivité */
 /* Sur les écrans de taille moyenne (ex: tablettes) */
 @media (max-width: 1024px) {
@@ -428,6 +459,7 @@ body{
     .competence-liste {
         /* Passe à 1 colonne */
         grid-template-columns: 1fr;
+        
     }
 }
 @media (max-width: 600px) {
@@ -436,6 +468,7 @@ body{
         /* La clé de l'empilement vertical */
         grid-template-columns: 1fr;
         gap: 20px;
+      
     }
     /* ... (ajustements de padding et font-size pour .skill-card) ... */
 }
@@ -879,6 +912,7 @@ body{
 
     
 }
+
 
 
 
