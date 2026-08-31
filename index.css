@@ -45,7 +45,7 @@ body{
     align-items: center;
     
     /* Hauteur pour qu'elle prenne presque tout l'écran */
-    min-height: 9vh; 
+    min-height: 100vh; 
    
     
     background-color: var(--couleur-secondaire);
@@ -162,7 +162,7 @@ body{
     position: sticky;
     top: 0;
     z-index: 100; /* Assure que le header est au-dessus de tout le contenu */
-    overflow-y: scroll;
+    overflow-y: visible;
 
     /* Fond blanc comme demandé */
     background-color: var(--couleur-header); 
@@ -275,6 +275,10 @@ body{
     /* Classe qui sera ajoutée/retirée par JavaScript pour afficher le menu */
     .menu.active {
         display: flex; /* Affiche le menu sous forme de liste verticale */
+    }
+
+    .contenueusection-hero h1{
+        font-size: 2.9rem;
     }
     
 }
@@ -780,7 +784,7 @@ body{
 /* --- 11. PIED DE PAGE (FOOTER) --- */
 
 .main-footer {
-    width: 101vw;
+    width: 100vw;
     background-color: var(--couleur-d-arière-plan); /* Utilisation du fond sombre */
     color: #ffffff; /* Texte clair */
     padding: 4rem 0 0; /* Pas de padding en bas pour laisser la ligne des droits d'auteur */
