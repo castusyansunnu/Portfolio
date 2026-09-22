@@ -183,7 +183,7 @@ body {
 
 /* Style du Logo */
 .logo a {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-color); /* Texte noir sur fond blanc */
     transition: color 0.3s;
