@@ -1,28 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YANSUNNU Castus</title>
+
+    <!--REFERENCEMENT SEO (Base)-->
+    <meta name= "description" content="Portfolio de YANSUNNU Castus, architecte en solutions digitales et développeur full-stack spécialisé dans le web, l'IoT et les systèmes performants.">
+    <meta name="author" content="Castus YANSUNNU">
+    <title>YANSUNNU Castus|Portefolio</title>
+
+    <!-- REFERENCEMENT SEO (Réseaux sociaux)-->
+     <meta property="og:title" content="YANSUNNU Castus | Portfolio">
+    <meta property="og:description" content="Architecte Solutions Digitales & Développeur Full-stack.">
+    <meta property="og:type" content="website">
+
+    <!--Les Balises de Performance & Expérience Utilisateur (UX)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="index.css">
-    <script src="script.js" defer ></script>
+    <script src="script.js" defer ></script>    
 </head>
+
 <body>
+
    <header class="header">
-    <div class="contener">
+    <div class="container">
         <h1 class="logo">
-            <a href="#hero">YANSUNNU Castus</a> </h1>
+            <a href="#Acceuil">YANSUNNU Castus</a> </h1>
         
-        <button class="menu-toggle" aria-label="Toggle navigation">
+        <button class="menu-toggle" aria-label="ouvri le menu" aria-expanded="false" >
             <i class="fas fa-bars"></i> 
         </button>
 
-        <nav class="menu" id="nav-menu"> 
+        <nav class="menu" id="nav-menu" aria-label="Navigation principale"> 
             <a href="#Acceuil">Accueil</a>
             <a href="#Apropos">À Propos</a>
+            <a href="#competences">Compétences</a>
             <a href="#Projets">Projets</a>
-            <a href="#contacte">Formulaire</a>
+            <a href="#contact">Formulaire</a>
         </nav>
     </div>
 </header>
@@ -42,7 +58,7 @@
                     </p>
                     <div class="hero-connexion">
                         <a href="#Projets"  class="btn btn-primaire">Mes Projets</a>
-                        <a href="#contacte" class="btn btn-secondaire"> Contact</a>
+                        <a href="#contact" class="btn btn-secondaire"> Contact</a>
                     </div>
 
                     <div class="hero-icone">
@@ -127,9 +143,11 @@
       <!--Mes projet-->
       <section id="Projets" class="projects-section">
     <div class="container">
-        <h2 class="section-title">Mes projets.</h2>
-        <p class="section-subtitle">Découvrez mon dernier travail et mes réalisations techniques</p>
-        
+       <!-- On englobe l'en-tête de section -->
+    <div class="section-header">
+      <h2 class="section-title">Mes projets.</h2>
+      <p class="section-subtitle">Découvrez mon dernier travail et mes réalisations techniques</p>
+    </div>
         <div class="projects-grid">
             
             <div class="project-card">
@@ -193,7 +211,7 @@
 </section>
 
           <!--Formulaire de contacy -->
-         <section id="contacte" class="section">
+         <section id="contact" class="section">
     <div class="container">
         <h2 class="section-title">Formulaire de contact </h2>
 

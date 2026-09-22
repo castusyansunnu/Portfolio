@@ -1,62 +1,76 @@
 /*deninition de la chage graphique */
-:root{
-    /* ... vos variables de couleurs existantes ... */
- --gradient-purple: linear-gradient(135deg, #7F00FF 0%, #E100FF 100%);
- --gradient-green: linear-gradient(135deg, #16A085 0%, #2ECC71 100%);
---gradient-orange: linear-gradient(135deg, #FF4500 0%, #FF8C00 100%);
-
- --couleur-header: #FFFFFF; /* Blanc pour le Header */
- --couleur-text-header: #121212;     /* Noir pour le texte sur fond blanc */
---couleur-primaire:#3e64ed; /*couleur principal*/
---couleur-secondaire: #1b2335; /* couleur du second bouton */
---couleur-du-texte: #EFEFEF; /*couleur des texte*/
---couleur-d-arière-plan: #1b2335;/*couleur d'arrière plan de la section*/
---couleur-des-bordu-du-cercle: #1b2335;/* surfacce et font de la section*/
-/*typographie*/
---font-primaire: 'Inter', sans-serif;
---fond-size-base: 1.125rem;
+:root {
+    --gradient-purple: linear-gradient(135deg, #7F00FF 0%, #E100FF 100%);
+    --gradient-green: linear-gradient(135deg, #16A085 0%, #2ECC71 100%);
+    --gradient-orange: linear-gradient(135deg, #FF4500 0%, #FF8C00 100%);
+    --primary-color: #3e64ed;
+    --primary-dark: #2d4fc8;
+    --secondary-color: #111827;
+    --text-color: #121212;
+    --white: #ffffff;
+    --dark-bg: #1b2335;
+    --text-dark: #121212;
+    --text-light: #f4f4f4;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --shadow-soft: 0 12px 30px rgba(18, 18, 18, 0.08);
+    --font-primary: 'Inter', 'Segoe UI', sans-serif;
+    --font-size-base: 1.125rem;
+    --container-width: 1200px;
+  overflow-x: hidden; /* Empêche le défilement horizontal de la page */
 }
 
-* {
-    box-sizing: border-box;
-}
 
-
-
-body{
-    /*reglage de base du body*/
+html {
+    scroll-behavior: smooth;
+    max-width: 100%;
     overflow-x: hidden;
-    padding: 0;
-    margin: 0;
-  
 }
 
+body {
+    margin: 0;
+    padding: 72px 0 0;
+    overflow-x: hidden;
+    font-family: var(--font-primary);
+    background: var(--white);
+    color: var(--text-dark);
+    line-height: 1.6;
+    max-width: 100%;
+}
 
+.container {
+    width: min(var(--container-width), calc(100% - 2rem));
+    margin: 0 auto;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 72px;
+}
 
 
 .section-hero {
-
-    width: 101vw;
-   
-
-    /* Utilisation de Flexbox pour centrer le contenu verticalement et horizontalement */
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
-    
-    /* Hauteur pour qu'elle prenne presque tout l'écran */
-    min-height: 100vh; 
-   
-    
-    background-color: var(--couleur-secondaire);
-    color: var(--couleur-du-texte);
+    justify-content: center;
+    min-height: calc(100vh - 72px);
+    background: var(--dark-bg);
+    color: var(--text-light);
     text-align: center;
     padding: 6rem 0;
-  
-    
-    /* Mise en place de l'arrière-plan avec les cercles (positionnement des formes) */
-    position: relative;
-    overflow: hidden; /* Important pour cacher les bords des cercles */
+    overflow: hidden;
+}
+
+.section-hero::before,
+.section-hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 0;
 }
 /* Styles pour les titres */
 .contenueusection-hero{
@@ -65,9 +79,9 @@ body{
 }
 .non-prenom {
     font-size: 0.9rem;
-    color: var(--couleur-primaire);
+    color: var(--primary-color);
     padding: 0.25rem 0.75rem;
-    border: 1px solid var(--couleur-primaire);
+    border: 1px solid var(--primary-color);
     border-radius: 20px;
     display: inline-block;
     margin-bottom: 1rem;
@@ -82,7 +96,7 @@ body{
 
 /* Surligner le texte "SIL Student" */
 .texte-coloriè {
-    color: var(--couleur-primaire);
+    color: var(--primary-color);
 }
 .hero-description {
     font-size: 1.3rem;
@@ -103,17 +117,17 @@ body{
     transition: all 0.3s ease;
 }
 .btn-secondaire {
-    background-color: var(--couleur-secondaire); /* Fond sombre */
-    color: var(--text-color);
+    background-color: var(--secondary-color); /* Fond sombre */
+    color: var(--white);
     border: 2px solid #505050; /* Bordure gris clair */
 }
 .btn-secondaire:hover {
     background-color: #303030;
-    border-color: var(--couleur-primaire);
+    border-color: var(--primary-color);
 }
 .btn-primaire{
-    background-color: var(--couleur-primaire); /* Fond sombre */
-    color: var(--text-color);
+    background-color: var(--primary-color); /* Fond sombre */
+    color: var(--white);
     border: 2px solid #505050; /* Bordure gris clair */
 }
 
@@ -125,7 +139,7 @@ body{
 }
 
 .hero-icone a:hover {
-    color: var(--couleur-primaire);
+    color: var(--primary-color);
 }
 
 /* --- Formes de fond (Les cercles) --- */
@@ -155,67 +169,46 @@ body{
     bottom: 10%;
     right: -100px;
 }
-  /*header et vav bar*/
+/*header et vav bar*/
 .header {
-    width: 100%;
     /* Rendre le header fixe en haut  */
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100; /* Assure que le header est au-dessus de tout le contenu */
-    overflow-y: visible;
-
-    /* Fond blanc comme demandé */
-    background-color: var(--couleur-header); 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre subtile pour le faire ressortir */
-    padding: 0rem 10px;
-    padding-right: 10px;
-}
-.contener {
-    display: flex; /* Active Flexbox */
-    justify-content: space-between; /* Écarte le logo et la navigation */
-    align-items: center; /* Centre les éléments verticalement */
+    z-index: 100;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); /* Ombre subtile pour le faire ressortir */
 }
 
 /* Style du Logo */
 .logo a {
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--couleur-text-header); /* Texte noir sur fond blanc */
+    color: var(--text-color); /* Texte noir sur fond blanc */
     transition: color 0.3s;
     text-decoration: none;
 }
 
 .logo a:hover {
-    color: var(--couleur-primaire);
-}
-/* Style de la Navigation */
-.menu>a {
-    color: var(--couleur-text-header); /* Couleur par défaut des liens */
-    margin-left: 2.5rem;
-    font-size: 1rem;
-    padding: 0.5rem 0;
-    position: relative;
-    transition: color 0.3s;
-    text-decoration: none;
-}
-.menu  a:hover {
-    color: var(--couleur-primaire); /* Couleur primaire au survol */
+    color: var(--primary-color);
 }
 
-/* Effet de soulignement actif/survol (très commun) */
-.menu  a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--couleur-primaire);
-    transition: width 0.3s ease;
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
-.menu  a:hover::after {
-    width: 100%;
+
+.menu a {
+    position: relative;
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
 }
+
+
 /* --- CSS POUR LE MENU HAMBURGER (Ajouter après le CSS existant) --- */
 
 /* Bouton Hamburger (Masqué par défaut) */
@@ -224,7 +217,7 @@ body{
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: var(--couleur-text-header);
+    color: var(--text-color);
     cursor: pointer;
     z-index: 200; 
 }
@@ -251,12 +244,13 @@ body{
         top: 100%; /* Se place juste sous le header */
         left: 0;
         width: 100%;
-        background-color: var(--couleur-header); /* Fond de la nav */
+        background-color: var(--white); /* Fond de la nav */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         flex-direction: column; /* Les liens sont empilés verticalement */
         padding: 0.5rem 0;
         z-index: 10;
         text-align: center;
+        
     }
 
     /* Style des liens empilés (remplace l'affichage en ligne) */
@@ -282,41 +276,41 @@ body{
     }
     
 }
-
-.A-Propos{
-    background-color: var(--couleur-header);
-     text-align: center;
-     padding: 6rem 0;
-    color: var(--couleur-secondaire);
-     align-items: center;
-     justify-content: center;
-    
-
+/* Ce conteneur protège tout ton contenu sur mobile tout en laissant le fond s'étendre */
+.contenueusection-hero {
+    width: min(1200px, calc(100% - 2rem));
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
-
+.A-Propos{
+     text-align: center;
+     padding: 6rem 0;
+     align-items: center;
+     justify-content: center;
+}
 
 /* Style général pour tous les titres de section */
 .titre {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
+    display: inline-block;
     position: relative;
-    display: inline-block; /* Nécessaire pour positionner le soulignement */
-    text-align: center;
+    margin: 0 0 0.8rem;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #121212;; /* Alignement du texte à gauche (standard pour le corps) */
 }
 
 /* Soulignement bleu sous le titre (comme sur la maquette) */
 .titre::after {
     content: '';
     position: absolute;
-    bottom: -10px; /* Positionnement vertical sous le texte */
+    bottom: -15px; /* Positionnement vertical sous le texte */
     left: 50%;
     transform: translateX(-50%); /* Centrage horizontal parfait */
     width: 60px; /* Longueur de la ligne */
     height: 4px;
-    background-color: var(--couleur-primaire);
+    background-color: var(--primary-color);
     border-radius: 2px;
 }
 
@@ -331,14 +325,14 @@ body{
 .A-Propos {
     margin-bottom: 1.5rem; /* Espacement entre les paragraphes */
 }
-
-
-
+.A-Propos p{
+   text-align: justify; /* Justifie le texte pour un aspect plus professionnel */
+}
+  
 
 
 .competences-section {
     background-color: #ffffff; /* Fond sombre (comme le Hero) */
-    color: var(--couleur-header); /* Texte clair */
     padding: 6rem 0;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 1);
@@ -349,28 +343,40 @@ body{
     color: var(--couleur-text-header);
 }
 .section-titre{
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
+     display: inline-block;
     position: relative;
-    display: inline-block; /* Nécessaire pour positionner le soulignement */
-    text-align: center;
+    margin: 0 0 0.8rem;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #121212;
 }
 
 /* Soulignement bleu sous le titre (comme sur la maquette) */
 .section-titre::after{
     content: '';
     position: absolute;
-    bottom: -10px; /* Positionnement vertical sous le texte */
+    bottom: -15px; /* Positionnement vertical sous le texte */
     left: 50%;
     transform: translateX(-50%); /* Centrage horizontal parfait */
     width: 60px; /* Longueur de la ligne */
     height: 4px;
-    background-color: var(--couleur-primaire);
+    background-color: var(--primary-color);
     border-radius: 2px;
     
 }
+/* Ce conteneur protège tout ton contenu sur mobile tout en laissant le fond s'étendre */
+.conteneur-propos {
+    width: min(1200px, calc(100% - 2rem));
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.containeur{
+    width: min(1200px, calc(100% - 2rem));
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 /* Mise en place de la Grille pour les 3 Cartes */
@@ -385,8 +391,8 @@ body{
 
 /* Style de la Carte de Compétence */
 .competence-card {
-    background-color: var(--couleur-header); /* Fond blanc pour les cartes */
-    color: var(--couleur-secondaire); /* Texte noir sur les cartes */
+    background-color: var(--white); /* Fond blanc pour les cartes */
+    color: var(--text-dark); /* Texte noir sur les cartes */
     padding: 2.5rem 1.5rem;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombre pour l'effet de profondeur */
@@ -400,7 +406,7 @@ body{
 }
 .card-icon-wrapper {
     background-color: #E6EEFE; /* Fond très clair pour l'icône */
-    color: var(--couleur-primaire);
+    color: var(--primary-color); /* Couleur de l'icône */
     width: 60px;
     height: 60px;
     border-radius: 10px;
@@ -430,7 +436,7 @@ body{
 .competence-liste li i {
     font-size: 1.1rem;
     margin-right: 0.75rem;
-    color: var(--couleur-primaire); /* Couleur d'accentuation */
+    color: var(--primary-color); /* Couleur d'accentuation */
     width: 20px; /* Assure un alignement vertical parfait */
     text-align: center;
 }
@@ -495,7 +501,6 @@ body{
 
 .projects-section {
     background-color: #ffffff; /* Fond blanc */
-    color: var(--couleur-d-arière-plan); 
     padding: 6rem 0;
     text-align: center;
 }
@@ -507,6 +512,42 @@ body{
 
 }
 
+
+.projects-section > .container {
+    display: block;
+    text-align: center;
+}
+
+.projects-section .section-title {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 0.8rem;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #121212;
+}
+
+.projects-section .section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.projects-section .section-subtitle {
+    display: block;
+    margin: 0 auto 2.5rem;
+    font-size: 1.09rem;
+    color: #181c26;
+    line-height: 1.6;
+    max-width: 620px;
+}
 /* Mise en place de la Grille de Projets (Identique à la grille de compétences) */
 .projects-grid {
     display: grid;
@@ -538,7 +579,7 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 3rem;
-    color: var(--light-surface); /* Icônes blanches */
+    color: var(--white); /* Icônes blanches */
 }
 
 /* Définition des couleurs de fond (Dégradés) */
@@ -568,13 +609,23 @@ body{
 /* Conteneur des boutons */
 .project-actions {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1rem;
+    justify-content: center; /* Espace entre les boutons */
+}
+
+.project-actions .btn {
+    flex: 1 1 180px;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Style du bouton "View Code" (moins accentué) */
 .btn-dark-outline {
-    background-color:var(--couleur-d-arière-plan);
+    background-color:var(--dark-bg);
     color: #ffffff;
     border: 2px solid #ccc;
     padding: 0.75rem 1.5rem;
@@ -592,13 +643,15 @@ body{
 
 
 .btn-primary {
-    background-color:var(--couleur-primaire);
+    background-color:var(--primary-color);
     color: #ffffff;
     border: 2px solid #ccc;
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-weight: 600;
     transition: all 0.3s;
+    text-decoration: none;
+    text-align: center;
     
 } 
 .btn-primary:hover{
@@ -622,16 +675,35 @@ body{
     .projects-grid {
         grid-template-columns: 1fr;
     }
+
+    .project-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .project-actions .btn {
+        width: min(100%, 260px);
+        flex: 0 0 auto;
+    }
 }
 
 /* --- 9. SECTION CTA (CV Download) --- */
 
 .cta-section {
-    background-color: var(--couleur-primaire); /* Fond sombre pour le contraste et l'impact */
+    background-color: var(--primary-color); /* Fond sombre pour le contraste et l'impact */
     color: #ffffff; /* Texte clair */
     padding: 6rem 0;
     text-align: center;
-    width: 101vw;
+    width: 100%;
+}
+
+.cta-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .cta-section h2 {
@@ -642,9 +714,8 @@ body{
 
 .cta-section p {
     font-size: 1.2rem;
-    margin-bottom: 2.5rem;
     max-width: 800px;
-    margin: 0 auto 2.5rem auto; /* Centrage et espacement */
+    margin: 0 auto 2.5rem auto;
 }
 
 /* Style général pour les boutons de grande taille */
@@ -653,19 +724,38 @@ body{
     font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: 700;
-    
-    /* Réutilisation de la couleur primaire pour l'accentuation */
     background-color: #ffffff;
-    color: var(--couleur-primaire);
+    color: var(--primary-color);
     border-radius: 5px;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn-large:hover {
-    background-color: var(--couleur-primaire); /* Une nuance plus foncée au survol */
+    background-color: var(--primary-dark);
+    color: #ffffff;
     transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .cta-section {
+        padding: 4.5rem 1rem;
+    }
+
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
+    }
+
+    .cta-section .btn-large {
+        width: min(100%, 320px);
+    }
 }
 
 .btn-large i {
@@ -687,13 +777,13 @@ body{
     transform: translateX(-50%); /* Centrage horizontal parfait */
     width: 60px; /* Longueur de la ligne */
     height: 4px;
-    background-color: var(--couleur-primaire);
+    background-color: var(--primary-color);
     border-radius: 2px;
 }
 /* --- 10. SECTION CONTACT & FORMULAIRE --- */
 
 .section {
-    background-color: #ffffff; /* Fond clair */
+    background-color: var(--white);
     color: var(--couleur-d-arière-plan);
     padding: 6rem 0;
     text-align: center;
@@ -785,7 +875,7 @@ body{
 
 .main-footer {
     width: 100vw;
-    background-color: var(--couleur-d-arière-plan); /* Utilisation du fond sombre */
+    background-color: var(--secondary-color); /* Utilisation du fond sombre */
     color: #ffffff; /* Texte clair */
     padding: 4rem 0 0; /* Pas de padding en bas pour laisser la ligne des droits d'auteur */
 
@@ -838,7 +928,7 @@ body{
 
 /* Style de la Colonne 3 (Réseaux Sociaux) */
 .social-icons a {
-    background-color: #303030; /* Fond de bouton plus clair que le footer */
+    background-color: var(--white); /* Fond de bouton plus clair que le footer */
     color: var(--text-color);
     width: 40px;
     height: 40px;
